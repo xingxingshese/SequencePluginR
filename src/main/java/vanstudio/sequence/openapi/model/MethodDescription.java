@@ -15,16 +15,20 @@ public class MethodDescription {
     private final List<String> _argTypes;
     private final String _returnType;
     private final int offset;
+    private final String _methodDesc;
 
     protected MethodDescription(ClassDescription classDescription, List<String> attributes,
-                                String methodName, String returnType, List<String> argNames, List<String> argTypes, int offset) {
+                                String methodName, String returnType, List<String> argNames, List<String> argTypes, int offset,
+        String methodDesc) {
         _attributes = attributes;
         _returnType = returnType;
         _argNames = argNames;
         _argTypes = argTypes;
         _classDescription = classDescription;
         _methodName = methodName;
+        _methodDesc = methodDesc;
         this.offset = offset;
+
     }
 
     public String toString() {
@@ -53,6 +57,10 @@ public class MethodDescription {
 
     public String getMethodName() {
         return _methodName;
+    }
+
+    public String getMethodDesc() {
+        return _methodDesc;
     }
 
     public String getTitleName() {
@@ -114,17 +122,26 @@ public class MethodDescription {
 
 
     public static MethodDescription createMethodDescription(ClassDescription classDescription,
-                                                     List<String> attributes, String methodName,
+        List<String> attributes, String methodName,
+        String returnType,
+        List<String> argNames, List<String> argTypes, int offset) {
+        return new MethodDescription(classDescription, attributes, methodName, returnType, argNames, argTypes, offset,
+            null);
+    }
+
+    public static MethodDescription createMethodDescription(ClassDescription classDescription,
+                                                     List<String> attributes, String methodName,String methodDesc,
                                                      String returnType,
                                                      List<String> argNames, List<String> argTypes, int offset) {
-        return new MethodDescription(classDescription, attributes, methodName, returnType, argNames, argTypes, offset);
+        return new MethodDescription(classDescription, attributes, methodName, returnType, argNames, argTypes, offset,
+            methodDesc);
     }
 
     public static MethodDescription createConstructorDescription(ClassDescription classDescription,
                                                           List<String> attributes, List<String> argNames,
                                                           List<String> argTypes, int offset) {
         return new MethodDescription(classDescription, attributes, Constants.CONSTRUCTOR_METHOD_NAME,
-                classDescription.getClassName(), argNames, argTypes, offset);
+                classDescription.getClassName(), argNames, argTypes, offset, null);
     }
 
     public int getOffset() {
@@ -137,5 +154,7 @@ public class MethodDescription {
 //                new ArrayList<>(), Constants.Lambda_Invoke, returnType, argNames, argTypes);
 //    }
 
-    public static final MethodDescription DUMMY_METHOD = new MethodDescription(ClassDescription.ANONYMOUS_CLASS, new ArrayList<>(), "dummy", "",new ArrayList<>(), new ArrayList<>(), 0);
+    public static final MethodDescription DUMMY_METHOD = new MethodDescription(ClassDescription.ANONYMOUS_CLASS, new ArrayList<>(), "dummy", "",new ArrayList<>(), new ArrayList<>(), 0,
+        null);
+
 }

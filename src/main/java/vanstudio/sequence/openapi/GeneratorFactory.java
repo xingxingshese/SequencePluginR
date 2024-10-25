@@ -9,7 +9,7 @@ import vanstudio.sequence.openapi.model.CallStack;
 
 public abstract class GeneratorFactory {
 
-    private static final LanguageExtension<GeneratorFactory> EP_NAME = new LanguageExtension<>("SequenceDiagram.generator");
+    private static final LanguageExtension<GeneratorFactory> EP_NAME = new LanguageExtension<>("SequenceDiagramR.generator");
 
     @NotNull
     public static IGenerator createGenerator(Language language, SequenceParams params) {

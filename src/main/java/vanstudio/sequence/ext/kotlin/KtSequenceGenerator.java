@@ -13,6 +13,7 @@ import org.jetbrains.kotlin.descriptors.CallableDescriptor;
 import org.jetbrains.kotlin.idea.KotlinLanguage;
 import org.jetbrains.kotlin.idea.caches.resolve.ResolutionUtils;
 import org.jetbrains.kotlin.idea.codeInsight.DescriptorToSourceUtilsIde;
+import org.jetbrains.kotlin.kdoc.psi.api.KDoc;
 import org.jetbrains.kotlin.psi.*;
 import org.jetbrains.kotlin.resolve.calls.model.ResolvedCall;
 import org.jetbrains.kotlin.resolve.lazy.BodyResolveMode;
@@ -354,10 +355,14 @@ public class KtSequenceGenerator extends KtTreeVisitorVoid implements IGenerator
         if (function.hasDeclaredReturnType()) {
             returnType = getType(function.getTypeReference());
         }
-
+        String commnet = null;
+        KDoc docComment = function.getDocComment();
+        if (docComment != null){
+            commnet = docComment.getText();
+        }
         return MethodDescription.createMethodDescription(
                 classDescription,
-                attributes, function.getName(), returnType,
+                attributes, function.getName(),commnet ,returnType,
                 paramPair.argNames, paramPair.argTypes,
                 offset
         );

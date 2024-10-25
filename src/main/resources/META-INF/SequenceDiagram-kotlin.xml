@@ -1,5 +1,5 @@
 <idea-plugin>
-    <extensions defaultExtensionNs="SequenceDiagram">
+    <extensions defaultExtensionNs="SequenceDiagramR">
 <!--        <sequenceNavigable language="kotlin" implementationClass="vanstudio.sequence.ext.kotlin.KtSequenceNavigable"/>-->
 <!--        <generator language="kotlin" implementationClass="vanstudio.sequence.ext.kotlin.KtGeneratorFactory"/>-->
 <!--        <actionFinder language="kotlin" implementationClass="vanstudio.sequence.ext.kotlin.KtActionFinder"/>-->

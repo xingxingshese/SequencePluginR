@@ -1,15 +1,17 @@
 package vanstudio.sequence.formatter;
 
-import vanstudio.sequence.openapi.Constants;
+import java.util.ArrayList;
+import java.util.List;
+
 import vanstudio.sequence.config.SequenceSettingsState;
+import vanstudio.sequence.openapi.Constants;
 import vanstudio.sequence.openapi.model.CallStack;
 import vanstudio.sequence.openapi.model.MethodDescription;
 
 /**
  * Generate <a href="https://plantuml.com/sequence-diagram">PlantUml sequence diagram</a> format.
- *
  */
-public class PlantUMLFormatter implements IFormatter{
+public class PlantUMLFormatter implements IFormatter {
     @Override
     public String format(CallStack callStack) {
         StringBuffer buffer = new StringBuffer();
@@ -44,15 +46,22 @@ public class PlantUMLFormatter implements IFormatter{
             buffer.append("deactivate ").append(classB).append('\n');
         }
 
+
     }
 
     private String getMethodName(MethodDescription method) {
-        if (method == null) return "";
+        if (method == null)
+            return "";
+
+        String methodDesc = "";
+        if (method.getMethodDesc() != null && !method.getMethodDesc().isEmpty()) {
+            methodDesc = method.getMethodDesc().replace("\r\n", "\n").replace("\n", "\\n") + "\\n";
+        }
 
         if (SequenceSettingsState.getInstance().SHOW_SIMPLIFY_CALL_NAME) {
-            return method.getMethodName();
+            return methodDesc + method.getMethodName();
         } else {
-            return method.getFullName();
+            return methodDesc + method.getFullName();
         }
 
     }

@@ -12,7 +12,7 @@ import vanstudio.sequence.generator.JavaSequenceNavigable;
 import java.util.List;
 
 public class SequenceNavigableFactory {
-    private static final ExtensionPointName<LanguageExtensionPoint<SequenceNavigable>> EP_NAME = ExtensionPointName.create("SequenceDiagram.sequenceNavigable");
+    private static final ExtensionPointName<LanguageExtensionPoint<SequenceNavigable>> EP_NAME = ExtensionPointName.create("SequenceDiagramR.sequenceNavigable");
 
     public static final SequenceNavigableFactory INSTANCE = new SequenceNavigableFactory();
 

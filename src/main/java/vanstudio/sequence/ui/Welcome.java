@@ -80,15 +80,15 @@ public class Welcome {
     private String loadWelcome() {
         String text = "Welcome to use SequenceDiagram Plugin";
 
-        try (InputStream inputStream = Welcome.class.getResourceAsStream("/welcome.html")) {
-            if (inputStream != null)
-                try (InputStreamReader isr = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-                     BufferedReader reader = new BufferedReader(isr)) {
-                    text = reader.lines().collect(Collectors.joining(System.lineSeparator()));
-                }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try (InputStream inputStream = Welcome.class.getResourceAsStream("/welcome.html")) {
+//            if (inputStream != null)
+//                try (InputStreamReader isr = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+//                     BufferedReader reader = new BufferedReader(isr)) {
+//                    text = reader.lines().collect(Collectors.joining(System.lineSeparator()));
+//                }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         return text;
     }

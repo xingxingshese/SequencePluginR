@@ -1,8 +1,8 @@
 <idea-plugin>
-    <id>SequenceDiagram</id>
-    <name>SequenceDiagram</name>
+    <id>SequenceDiagramR</id>
+    <name>SequenceDiagramR</name>
     <description><![CDATA[
-<h3>SequenceDiagram for IntelliJ IDEA</h3>
+<h3>SequenceDiagramR for IntelliJ IDEA</h3>
 <a href="http://vanco.github.io/SequencePlugin">http://vanco.github.io/SequencePlugin.</a>
 
 <p>with this plugin, you can<br>
@@ -73,10 +73,10 @@ The original version SequencePlugin come from ksibilev@yahoo.com.</p>
         <applicationConfigurable parentId="tools"
                                  id="Settings.Sequence.Configuration"
                                  instance="vanstudio.sequence.config.SequenceSettingsConfigurable"
-                                 displayName="Sequence Diagram"/>
+                                 displayName="Sequence Diagram R"/>
         <applicationService serviceImplementation="vanstudio.sequence.config.SequenceSettingsState"/>
         <applicationService serviceImplementation="vanstudio.sequence.config.SequenceParamsState"/>
-        <toolWindow id="Sequence Diagram" icon="SequencePluginIcons.SEQUENCE_ICON_13" anchor="bottom"
+        <toolWindow id="Sequence Diagram R" icon="SequencePluginIcons.SEQUENCE_ICON_13" anchor="bottom"
                     factoryClass="vanstudio.sequence.SequenceToolWindowsFactory" canCloseContents="true"/>
         <!-- Since idea 2020.3.x -->
         <notificationGroup displayType="BALLOON" id="Sequence Diagram"/>
@@ -86,7 +86,7 @@ The original version SequencePlugin come from ksibilev@yahoo.com.</p>
 
 
     </extensions>
-    <extensions defaultExtensionNs="SequenceDiagram">
+    <extensions defaultExtensionNs="SequenceDiagramR">
         <sequenceNavigable language="JAVA"
                            implementationClass="vanstudio.sequence.generator.JavaSequenceNavigable"/>
 <!--        <generator language="JAVA" implementationClass="vanstudio.sequence.generator.JavaGeneratorFactory"/>-->

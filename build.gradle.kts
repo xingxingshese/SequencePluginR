@@ -73,9 +73,9 @@ tasks {
         changeNotes.set(provider { changelog.getLatest().toHTML() })
     }
 
-    runPluginVerifier {
-        ideVersions.set(properties("pluginVerifierIdeVersions").split(',').map(String::trim).filter(String::isNotEmpty))
-    }
+//    runPluginVerifier {
+//        ideVersions.set(properties("pluginVerifierIdeVersions").split(',').map(String::trim).filter(String::isNotEmpty))
+//    }
 
     publishPlugin {
         dependsOn("patchChangelog")

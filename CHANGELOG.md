@@ -1,6 +1,11 @@
 # SequenceDiagram Changelog
 
-## Unreleased
+## 3.0.6.1 - 2024.10.23
+### Supported
+- Support comment on export `puml` .
+
+
+## 3.0.6
 ### Added
 - RegexFilter: e.g. `.*Builder` to filter `my.package.MyBuilder`, `java.lang.StringBuilder`...
 

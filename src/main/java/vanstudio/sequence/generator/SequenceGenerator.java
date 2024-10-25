@@ -20,9 +20,11 @@ import vanstudio.sequence.openapi.model.MethodDescription;
 import vanstudio.sequence.util.MyPsiUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class SequenceGenerator extends JavaRecursiveElementVisitor implements IGenerator {
     private static final Logger LOGGER = Logger.getInstance(SequenceGenerator.class);
@@ -263,10 +265,21 @@ public class SequenceGenerator extends JavaRecursiveElementVisitor implements IG
         PsiType returnType = psiMethod.getReturnType();
         Objects.requireNonNull(returnType);
 
+        String commnet = getComment(psiMethod);
+
         return MethodDescription.createMethodDescription(
                 createClassDescription(containingClass),
-                attributes, psiMethod.getName(), returnType.getCanonicalText(),
+                attributes, psiMethod.getName(),commnet, returnType.getCanonicalText(),
                 paramPair.argNames, paramPair.argTypes, offset);
+    }
+
+    private static String getComment(PsiMethod psiMethod) {
+        String comment = null;
+        PsiElement[] children = psiMethod.getChildren();
+        if (children.length > 0){
+            comment =  Arrays.stream(children).map(PsiElement::getText).collect(Collectors.joining("\n"));
+        }
+        return comment;
     }
 
     private ParamPair extractParameters(PsiParameterList parameterList) {

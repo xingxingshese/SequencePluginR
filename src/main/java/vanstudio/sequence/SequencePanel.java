@@ -581,7 +581,7 @@ public class SequencePanel extends JPanel implements ConfigListener {
                     actionGroup.add(new RemoveMethodAction(displayLink.getLink().getMethodInfo()));
             }
             ActionPopupMenu actionPopupMenu = ActionManager.getInstance().
-                    createActionPopupMenu("SequenceDiagram.Popup", actionGroup);
+                    createActionPopupMenu("SequenceDiagramR.Popup", actionGroup);
             Component invoker = screenObject instanceof DisplayObject ? _display.getHeader() : _display;
             actionPopupMenu.getComponent().show(invoker, x, y);
         }

@@ -15,7 +15,8 @@ public class LambdaExprDescription extends MethodDescription {
     private final List<String> _enclosedMethodArgTypes;
 
     public LambdaExprDescription(MethodDescription methodDescription, String returnType, List<String> argNames, List<String> argTypes, int offset) {
-        super(methodDescription.getClassDescription(), new ArrayList<>(), Constants.Lambda_Invoke,returnType, argNames, argTypes, offset);
+        super(methodDescription.getClassDescription(), new ArrayList<>(), Constants.Lambda_Invoke,returnType, argNames, argTypes, offset,
+            null);
         this._enclosedMethodName = methodDescription.getMethodName();
         this._enclosedMethodArgTypes = methodDescription.getArgTypes();
     }

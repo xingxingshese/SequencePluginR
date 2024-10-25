@@ -1,11 +1,14 @@
 package vanstudio.sequence.util
 
+import org.apache.commons.collections.CollectionUtils
 import org.jetbrains.uast.*
 import vanstudio.sequence.diagram.Info
 import vanstudio.sequence.openapi.IGenerator.ParamPair
 import vanstudio.sequence.openapi.model.ClassDescription
 import vanstudio.sequence.openapi.model.LambdaExprDescription
 import vanstudio.sequence.openapi.model.MethodDescription
+import java.util.stream.Collector
+import java.util.stream.Collectors
 
 fun createMethod(node: ULambdaExpression, offset: Int): MethodDescription {
     val paramPair: ParamPair = extractParameters(node.valueParameters)
@@ -30,9 +33,18 @@ fun createMethod(node: UMethod, offset: Int): MethodDescription {
     }
 
     val returnType = node.returnType
+    var comment =  "";
+    if (CollectionUtils.isNotEmpty(node.comments)){
+        val toList = node.comments.stream()
+            .map(UComment::text)
+            .collect(Collectors.toList());
+        comment = toList.joinToString("\n")
+
+    }
+
     return MethodDescription.createMethodDescription(
         createClassDescription(containingUClass),
-        attributes, node.name, returnType?.canonicalText,
+        attributes, node.name, comment,returnType?.canonicalText,
         paramPair.argNames, paramPair.argTypes, offset
     )
 }
