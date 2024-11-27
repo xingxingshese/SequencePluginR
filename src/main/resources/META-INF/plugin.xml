@@ -22,7 +22,7 @@ this plugin is a fork of <a href="http://vanco.github.io/SequencePlugin">Sequenc
 ]]></description>
     <version>3.0.6.1</version>
     <vendor>Minliang</vendor>
-    <idea-version since-build="222.4554.10"/>
+    <idea-version since-build="223.7571.176"/>
 
     <depends>com.intellij.modules.platform</depends>
 
