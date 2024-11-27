@@ -3,9 +3,11 @@
     <name>SequenceDiagramR</name>
     <description><![CDATA[
 <h3>SequenceDiagramR for IntelliJ IDEA</h3>
-<a href="http://vanco.github.io/SequencePlugin">http://vanco.github.io/SequencePlugin.</a>
+this plugin is a fork of <a href="http://vanco.github.io/SequencePlugin">SequencePlugin.</a>
+
 
 <p>with this plugin, you can<br>
++ newest! Support comment on export `puml`!
 + generate Simple Sequence Diagram.<br>
 + Navigate the code by click the diagram shape.<br>
 + Delete Class from diagram.<br>
@@ -14,14 +16,12 @@
 + Exclude classes from diagram by Settings > Tools > Sequence Diagram<br>
 + Smart Interface(experimental)<br>
 + Lambda Expression(experimental)</p>
+ </p>
 
-<p>SequencePluginReload rename to SequenceDiagram.
-Simple Sequence Diagram Generator. fixed version of SequencePlugin , work from 13.x.
-The original version SequencePlugin come from ksibilev@yahoo.com.</p>
 
 ]]></description>
-    <version>1.2.4</version>
-    <vendor email="fanhuagang@gmail.com">VanStudio</vendor>
+    <version>3.0.6.1</version>
+    <vendor>Minliang</vendor>
     <idea-version since-build="201.6668.113"/>
 
     <depends>com.intellij.modules.platform</depends>
