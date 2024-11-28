@@ -3,10 +3,10 @@
 
 # SequenceDiagram
 <!-- Plugin description -->
-Sequence Diagram is tool to generate simple sequence diagram(UML) from java, kotlin, scala(Beta) and groovy(limited) code.
-https://vanco.github.io/SequencePlugin.
+this plugin is a fork of <a href="http://vanco.github.io/SequencePlugin">SequencePlugin.</a>
 
 with this plugin, you can
++ newest! Support comment on export `puml`!
 + generate Simple Sequence Diagram.
 + Navigate the code by click the diagram shape.
 + Delete Class from diagram.
@@ -235,25 +235,7 @@ When generate sequence of method `greet`, the calls in the method body will not 
         Fruit fruit = new Banana()
         fruit.eat()
 ```
-## Acknowledgement
 
-#### Name history
-+ **SequencePlugin** Maintained by Kentaur(Kesh Sibilev, ksibilve@yahoo.com) until 2011
-+ **SequencePluginReload** Maintained by Vanhg(Evan Fan, fanhuagang@gmail.com) 2011 - 2015
-+ **SequenceDiagram** Maintained by Vanco(Evan Fan, fanhuagang@gmail.com) since 2016 
-  ![new](imges/new.svg){:height="32px" width="32px"}
 
-#### Why change name?
-Since 2011, I found a solution of NPE of original **SequencePlugin**, so I write email to Kentaur with my solution,
-He said he was not coding anymore. Instead, he sent me the code. I fix the NPE issue and publish to plugin
-repository with new name **SequencePluginReload**.
-
-In 2015, the IntelliJ change the login system, and I lost my account, cannot continue to publish new version to
-the repository.
-
-In 2016, I change the Name again to **SequenceDiagram** and host the source code on [github](https://github.com/Vanco/SequencePlugin).
-Now it is open source.
-
-Thanks Kentaur for the great work on the original source.
 
 ---
