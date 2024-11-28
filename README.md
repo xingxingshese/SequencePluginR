@@ -3,10 +3,10 @@
 
 # SequenceDiagram
 <!-- Plugin description -->
-this plugin is a fork of <a href="http://vanco.github.io/SequencePlugin">SequencePlugin.</a>
+this plugin is a fork of SequencePlugin
 
 with this plugin, you can
-+ newest! Support comment on export `puml`!
++ newest! Support comment on export puml!
 + generate Simple Sequence Diagram.
 + Navigate the code by click the diagram shape.
 + Delete Class from diagram.
@@ -235,7 +235,6 @@ When generate sequence of method `greet`, the calls in the method body will not 
         Fruit fruit = new Banana()
         fruit.eat()
 ```
-
 
 
 ---
