@@ -91,10 +91,11 @@ public class PlantUMLFormatter implements IFormatter {
             return "";
 
         String methodDesc = "";
-        if (method.getMethodDesc() != null && !method.getMethodDesc().isEmpty()) {
-            methodDesc = method.getMethodDesc().replace("\r\n", "\n").replace("\n", "\\n") + "\\n";
+        if (SequenceSettingsState.getInstance().SHOW_COMMENTS){
+            if (method.getMethodDesc() != null && !method.getMethodDesc().isEmpty()) {
+                methodDesc = method.getMethodDesc().replace("\r\n", "\n").replace("\n", "\\n") + "\\n";
+            }
         }
-
         if (SequenceSettingsState.getInstance().SHOW_SIMPLIFY_CALL_NAME) {
             return methodDesc + method.getMethodName();
         } else {

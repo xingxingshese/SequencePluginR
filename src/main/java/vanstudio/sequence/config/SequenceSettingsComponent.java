@@ -55,6 +55,7 @@ public class SequenceSettingsComponent implements ActionListener {
     private JCheckBox _showSimplifyCallName;
     private JCheckBox _showLambdaCall;
     private JCheckBox _smartInterface;
+    private JCheckBox _showComments;
 
     private final ExcludeTableModel _excludeTableModel;
     private final ColorMapTableModel _colorMapTableModel;
@@ -127,7 +128,11 @@ public class SequenceSettingsComponent implements ActionListener {
             return true;
         if(sequenceSettingsState.SHOW_SIMPLIFY_CALL_NAME != _showSimplifyCallName.isSelected())
             return true;
+
         if(sequenceSettingsState.SHOW_LAMBDA_CALL != _showLambdaCall.isSelected()) {
+            return true;
+        }
+        if(sequenceSettingsState.SHOW_COMMENTS != _showComments.isSelected()) {
             return true;
         }
         if(sequenceSettingsState.SMART_INTERFACE != _smartInterface.isSelected()) {
@@ -157,6 +162,7 @@ public class SequenceSettingsComponent implements ActionListener {
         sequenceSettingsState.SHOW_CALL_NUMBERS = _showCallNumbers.isSelected();
         sequenceSettingsState.SHOW_SIMPLIFY_CALL_NAME = _showSimplifyCallName.isSelected();
         sequenceSettingsState.SHOW_LAMBDA_CALL = _showLambdaCall.isSelected();
+        sequenceSettingsState.SHOW_COMMENTS = _showComments.isSelected();
         sequenceSettingsState.SMART_INTERFACE = _smartInterface.isSelected();
         sequenceSettingsState.USE_3D_VIEW = _use3dView.isSelected();
         sequenceSettingsState.FONT_NAME = (String)_fontName.getSelectedItem();
@@ -176,6 +182,7 @@ public class SequenceSettingsComponent implements ActionListener {
         _showCallNumbers.setSelected(sequenceSettingsState.SHOW_CALL_NUMBERS);
         _showSimplifyCallName.setSelected(sequenceSettingsState.SHOW_SIMPLIFY_CALL_NAME);
         _showLambdaCall.setSelected(sequenceSettingsState.SHOW_LAMBDA_CALL);
+        _showComments.setSelected(sequenceSettingsState.SHOW_COMMENTS);
         _smartInterface.setSelected(SequenceSettingsState.getInstance().SMART_INTERFACE);
         _use3dView.setSelected(sequenceSettingsState.USE_3D_VIEW);
         _fontName.setSelectedItem(sequenceSettingsState.FONT_NAME);

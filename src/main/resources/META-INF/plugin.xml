@@ -20,7 +20,7 @@ this plugin is a fork of <a href="http://vanco.github.io/SequencePlugin">Sequenc
 
 
 ]]></description>
-    <version>3.0.6.1</version>
+    <version>3.0.6.2</version>
     <vendor>Minliang</vendor>
     <idea-version since-build="223.7571.176"/>
 
@@ -37,12 +37,12 @@ this plugin is a fork of <a href="http://vanco.github.io/SequencePlugin">Sequenc
     <actions>
         <action id="SequencePlugin.ShowSequenceDiagram" class="vanstudio.sequence.ShowSequenceAction"
                 icon="SequencePluginIcons.SEQUENCE_ICON"
-                text="Sequence Diagram"
+                text="Sequence Diagram R"
                 description="Generate sequence diagram of the current method">
             <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="ShowIntentionsGroup"/>
 <!--            <add-to-group group-id="StructureViewPopupMenu" anchor="after" relative-to-action="RefactoringMenu"/>-->
             <add-to-group group-id="ToolsMenu" anchor="last"/>
-            <keyboard-shortcut first-keystroke="alt S" keymap="$default"/>
+            <keyboard-shortcut first-keystroke="alt D" keymap="$default"/>
         </action>
        <!-- <group id="SequencePlugin.SequenceDiagramGroup"
                class="vanstudio.sequence.ShowSequenceActionGroup"

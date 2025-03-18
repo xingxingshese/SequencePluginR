@@ -6,7 +6,7 @@
 this plugin is a fork of SequencePlugin
 
 with this plugin, you can
-+ newest! Support comment on export puml!
++ newest Support comment on export puml
 + generate Simple Sequence Diagram.
 + Navigate the code by click the diagram shape.
 + Delete Class from diagram.
