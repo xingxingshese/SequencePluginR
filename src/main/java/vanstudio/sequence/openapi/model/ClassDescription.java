@@ -1,8 +1,11 @@
 package vanstudio.sequence.openapi.model;
 
-import vanstudio.sequence.openapi.Constants;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
-import java.util.*;
+import vanstudio.sequence.openapi.Constants;
 
 public class ClassDescription {
     private final String _className;

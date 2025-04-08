@@ -1,10 +1,11 @@
 package vanstudio.sequence.diagram.app.actions;
 
+import java.awt.event.ActionEvent;
+
+import javax.swing.JOptionPane;
+
 import vanstudio.sequence.diagram.Model;
 import vanstudio.sequence.diagram.app.Sequence;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 
 public abstract class ModifiedConfirmAction extends ModelAction {
 

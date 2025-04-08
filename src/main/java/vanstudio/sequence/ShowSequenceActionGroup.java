@@ -10,8 +10,10 @@ import com.intellij.openapi.project.DumbService;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
 import vanstudio.sequence.openapi.ActionFinder;
 
 public class ShowSequenceActionGroup extends ActionGroup implements DumbAware {

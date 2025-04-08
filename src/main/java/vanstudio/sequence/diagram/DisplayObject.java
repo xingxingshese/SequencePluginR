@@ -2,13 +2,20 @@ package vanstudio.sequence.diagram;
 
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.ui.JBColor;
-import vanstudio.sequence.config.ColorSupport;
-import vanstudio.sequence.config.SequenceSettingsState;
 
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.Rectangle;
+import java.awt.Stroke;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import vanstudio.sequence.config.ColorSupport;
+import vanstudio.sequence.config.SequenceSettingsState;
 
 public class DisplayObject extends ScreenObject {
     private static final Logger LOGGER = Logger.getInstance(DisplayObject.class);

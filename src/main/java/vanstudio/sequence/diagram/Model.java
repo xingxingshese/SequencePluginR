@@ -1,12 +1,19 @@
 package vanstudio.sequence.diagram;
 
-
 import com.intellij.openapi.diagnostic.Logger;
+
+import java.beans.PropertyChangeListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringReader;
 
 import javax.swing.event.EventListenerList;
 import javax.swing.event.SwingPropertyChangeSupport;
-import java.beans.PropertyChangeListener;
-import java.io.*;
 
 public class Model {
 

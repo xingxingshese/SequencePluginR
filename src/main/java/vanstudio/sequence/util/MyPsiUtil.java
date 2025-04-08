@@ -1,20 +1,48 @@
 package vanstudio.sequence.util;
 
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.*;
+import com.intellij.psi.PsiCallExpression;
+import com.intellij.psi.PsiClass;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiExpression;
+import com.intellij.psi.PsiExpressionList;
+import com.intellij.psi.PsiFile;
+import com.intellij.psi.PsiJavaFile;
+import com.intellij.psi.PsiLambdaExpression;
+import com.intellij.psi.PsiManager;
+import com.intellij.psi.PsiMethod;
+import com.intellij.psi.PsiMethodCallExpression;
+import com.intellij.psi.PsiModifier;
+import com.intellij.psi.PsiModifierList;
+import com.intellij.psi.PsiNewExpression;
+import com.intellij.psi.PsiParameter;
+import com.intellij.psi.PsiReferenceExpression;
+import com.intellij.psi.PsiType;
+import com.intellij.psi.PsiTypeParameter;
 import com.intellij.psi.util.ClassUtil;
 import com.intellij.psi.util.PsiTreeUtil;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-//import org.jetbrains.kotlin.idea.KotlinLanguage;
-import org.jetbrains.kotlin.psi.*;
 
-import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
 import java.io.File;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.kotlin.psi.KtCallExpression;
+import org.jetbrains.kotlin.psi.KtDotQualifiedExpression;
+import org.jetbrains.kotlin.psi.KtExpression;
+import org.jetbrains.kotlin.psi.KtFunctionType;
+import org.jetbrains.kotlin.psi.KtLambdaExpression;
+import org.jetbrains.kotlin.psi.KtNullableType;
+import org.jetbrains.kotlin.psi.KtParameter;
+import org.jetbrains.kotlin.psi.KtTypeElement;
+import org.jetbrains.kotlin.psi.KtTypeReference;
+import org.jetbrains.kotlin.psi.KtUserType;
+import org.jetbrains.kotlin.psi.KtValueArgument;
 
 public class MyPsiUtil {
 
@@ -304,7 +332,7 @@ public class MyPsiUtil {
         }
 
         if (typeElement instanceof KtFunctionType) {
-            return typeElement.getText().replaceAll("[\\(|\\)]", "_").replaceAll(" ", "");//.replaceAll("->", "→");
+            return typeElement.getText().replaceAll("[\\(|\\)]", "_").replaceAll(" ", "");
         }
 
         return "Unit";

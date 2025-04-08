@@ -1,5 +1,7 @@
 package vanstudio.sequence.generator;
 
+import static vanstudio.sequence.util.MyPsiUtil.findNaviOffset;
+
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.application.ReadAction;
 import com.intellij.openapi.editor.Editor;
@@ -9,20 +11,24 @@ import com.intellij.openapi.fileEditor.OpenFileDescriptor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Pair;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.*;
+import com.intellij.psi.PsiClass;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiFile;
+import com.intellij.psi.PsiManager;
+import com.intellij.psi.PsiMethod;
 import com.intellij.psi.search.searches.DefinitionsScopedSearch;
 import com.intellij.psi.util.ClassUtil;
 import com.intellij.util.concurrency.NonUrgentExecutor;
-import vanstudio.sequence.openapi.SequenceNavigable;
-import vanstudio.sequence.util.MyPsiUtil;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.concurrency.CancellablePromise;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import static vanstudio.sequence.util.MyPsiUtil.findNaviOffset;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.concurrency.CancellablePromise;
+
+import vanstudio.sequence.openapi.SequenceNavigable;
+import vanstudio.sequence.util.MyPsiUtil;
 
 public class JavaSequenceNavigable implements SequenceNavigable {
     protected final Project project;

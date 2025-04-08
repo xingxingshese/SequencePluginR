@@ -10,15 +10,19 @@ import com.intellij.psi.search.FilenameIndex;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.concurrency.NonUrgentExecutor;
-import vanstudio.sequence.openapi.SequenceNavigable;
-import vanstudio.sequence.generator.JavaSequenceNavigable;
-import vanstudio.sequence.util.MyPsiUtil;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.kotlin.psi.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.kotlin.psi.KtNamedFunction;
+import org.jetbrains.kotlin.psi.KtObjectDeclaration;
+import org.jetbrains.kotlin.psi.KtSuperTypeListEntry;
+
+import vanstudio.sequence.generator.JavaSequenceNavigable;
+import vanstudio.sequence.openapi.SequenceNavigable;
+import vanstudio.sequence.util.MyPsiUtil;
 
 public class KtSequenceNavigable extends JavaSequenceNavigable implements SequenceNavigable {
 

@@ -2,15 +2,23 @@ package vanstudio.sequence.config;
 
 import com.intellij.ui.JBColor;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableCellRenderer;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Paint;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Optional;
+
+import javax.swing.AbstractCellEditor;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JColorChooser;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.border.Border;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 
 public class ColorSupport {
 

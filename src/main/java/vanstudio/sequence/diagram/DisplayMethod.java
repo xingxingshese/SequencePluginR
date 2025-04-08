@@ -2,9 +2,11 @@ package vanstudio.sequence.diagram;
 
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.ui.JBColor;
-import vanstudio.sequence.config.SequenceSettingsState;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+
+import vanstudio.sequence.config.SequenceSettingsState;
 
 public class DisplayMethod extends ScreenObject {
 

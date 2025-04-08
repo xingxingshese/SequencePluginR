@@ -1,5 +1,9 @@
 package vanstudio.sequence.ext.kotlin;
 
+import java.util.List;
+
+import org.jetbrains.annotations.NotNull;
+
 import vanstudio.sequence.config.ExcludeEntry;
 import vanstudio.sequence.config.SequenceParamsState;
 import vanstudio.sequence.config.SequenceSettingsState;
@@ -12,9 +16,6 @@ import vanstudio.sequence.openapi.IGenerator;
 import vanstudio.sequence.openapi.SequenceParams;
 import vanstudio.sequence.openapi.filters.PackageFilter;
 import vanstudio.sequence.openapi.filters.ProjectOnlyFilter;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 public class KtGeneratorFactory extends GeneratorFactory {
     @NotNull

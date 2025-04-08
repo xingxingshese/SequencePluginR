@@ -1,10 +1,10 @@
 package vanstudio.sequence.openapi.model;
 
-import vanstudio.sequence.openapi.Constants;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import vanstudio.sequence.openapi.Constants;
 
 /**
  * &copy; fanhuagang@gmail.com

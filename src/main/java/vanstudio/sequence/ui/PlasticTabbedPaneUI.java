@@ -2,16 +2,29 @@ package vanstudio.sequence.ui;
 
 import com.intellij.ui.JBColor;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Insets;
+import java.awt.LayoutManager;
+import java.awt.Rectangle;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+import javax.swing.Icon;
+import javax.swing.JComponent;
+import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.plaf.metal.MetalTabbedPaneUI;
-import java.awt.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 public class PlasticTabbedPaneUI  extends MetalTabbedPaneUI {
     public static final String MARK_CONTENT_BORDERS_KEY =
@@ -83,7 +96,7 @@ public class PlasticTabbedPaneUI  extends MetalTabbedPaneUI {
     /**
      * Installs the UI.
      *
-     * @see javax.swing.plaf.ComponentUI#installUI(JComponent)
+     * @see javax.swing.plaf.ComponentUI#installUI(javax.swing.JComponent)
      */
     public void installUI(JComponent c) {
         super.installUI(c);
@@ -94,7 +107,7 @@ public class PlasticTabbedPaneUI  extends MetalTabbedPaneUI {
 
     /**
      * Uninstalls the UI.
-     * @see javax.swing.plaf.ComponentUI#uninstallUI(JComponent)
+     * @see javax.swing.plaf.ComponentUI#uninstallUI(javax.swing.JComponent)
      */
     public void uninstallUI(JComponent c) {
         renderer = null;
@@ -534,7 +547,7 @@ public class PlasticTabbedPaneUI  extends MetalTabbedPaneUI {
      * class behavior we listen to changes of the ancestor, tab placement,
      * and JGoodies options for content border, and embedded tabs.
      */
-    private class MyPropertyChangeHandler extends BasicTabbedPaneUI.PropertyChangeHandler {
+    private class MyPropertyChangeHandler extends PropertyChangeHandler {
 
         public void propertyChange(PropertyChangeEvent e) {
             super.propertyChange(e);

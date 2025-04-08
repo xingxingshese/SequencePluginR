@@ -1,8 +1,10 @@
 package vanstudio.sequence.ext.kotlin.filters;
 
 import com.intellij.psi.PsiElement;
-import vanstudio.sequence.openapi.filters.MethodFilter;
+
 import org.jetbrains.kotlin.psi.KtConstructor;
+
+import vanstudio.sequence.openapi.filters.MethodFilter;
 
 public class KtNoConstructorsFilter implements MethodFilter {
     private final boolean _noConstructors;

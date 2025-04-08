@@ -2,7 +2,8 @@ package vanstudio.sequence.diagram;
 
 import com.intellij.openapi.diagnostic.Logger;
 
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;

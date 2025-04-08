@@ -5,10 +5,22 @@ import com.intellij.ui.JBColor;
 import com.intellij.ui.LightColors;
 import com.intellij.util.ui.UIUtil;
 
-import javax.swing.*;
+import java.awt.Adjustable;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.Rectangle;
+import java.awt.Stroke;
+
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.UIManager;
 import javax.swing.event.ChangeEvent;
 import javax.swing.plaf.basic.BasicScrollBarUI;
-import java.awt.*;
 
 /**
  * &copy; fanhuagang@gmail.com
@@ -39,7 +51,7 @@ public class MyButtonlessScrollBarUI extends BasicScrollBarUI {
     private static final BasicStroke BORDER_STROKE = new BasicStroke();
 
     private static int getAnimationColorShift() {
-        return UIUtil.isUnderDarcula() ? 20 : 40;
+        return JBColor.isBright() ? 20 : 40;
     }
 
     private int myAnimationColorShift = 0;
@@ -217,7 +229,7 @@ public class MyButtonlessScrollBarUI extends BasicScrollBarUI {
 
     protected Color adjustColor(Color c) {
         if (myAnimationColorShift == 0) return c;
-        final int sign = UIUtil.isUnderDarcula() ? -1 : 1;
+        final int sign = JBColor.isBright() ? -1 : 1;
         return Gray.get(Math.max(0, Math.min(255, c.getRed() - sign * myAnimationColorShift)));
     }
 

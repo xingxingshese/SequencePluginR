@@ -1,6 +1,7 @@
 package vanstudio.sequence.formatter;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.text.StringEscapeUtils;
+
 import vanstudio.sequence.config.SequenceSettingsState;
 import vanstudio.sequence.openapi.model.CallStack;
 import vanstudio.sequence.openapi.model.MethodDescription;
@@ -53,6 +54,6 @@ public class MermaidFormatter implements IFormatter{
     }
 
     private String escape(String method) {
-        return StringEscapeUtils.escapeHtml(method);
+        return StringEscapeUtils.escapeHtml3(method);
     }
 }

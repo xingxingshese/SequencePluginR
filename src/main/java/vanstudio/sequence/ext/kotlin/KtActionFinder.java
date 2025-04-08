@@ -6,16 +6,18 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
-import vanstudio.sequence.openapi.ActionFinder;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.kotlin.psi.KtFunction;
-import org.jetbrains.kotlin.psi.KtFunctionLiteral;
-import org.jetbrains.kotlin.psi.KtParameter;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.kotlin.psi.KtFunction;
+import org.jetbrains.kotlin.psi.KtFunctionLiteral;
+import org.jetbrains.kotlin.psi.KtParameter;
+
+import vanstudio.sequence.openapi.ActionFinder;
 
 public class KtActionFinder implements ActionFinder {
 

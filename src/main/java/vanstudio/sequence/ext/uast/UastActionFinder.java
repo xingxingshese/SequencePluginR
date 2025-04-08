@@ -7,14 +7,20 @@ import com.intellij.openapi.actionSystem.Separator;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiCompiledElement;
 import com.intellij.psi.PsiElement;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.uast.*;
-import org.jetbrains.uast.visitor.AbstractUastVisitor;
-import vanstudio.sequence.openapi.ActionFinder;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.uast.UClass;
+import org.jetbrains.uast.UElement;
+import org.jetbrains.uast.UMethod;
+import org.jetbrains.uast.UParameter;
+import org.jetbrains.uast.UastContextKt;
+import org.jetbrains.uast.visitor.AbstractUastVisitor;
+
+import vanstudio.sequence.openapi.ActionFinder;
 
 public class UastActionFinder implements ActionFinder {
 

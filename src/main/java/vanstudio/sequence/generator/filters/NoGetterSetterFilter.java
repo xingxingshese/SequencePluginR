@@ -3,6 +3,7 @@ package vanstudio.sequence.generator.filters;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiMethod;
 import com.intellij.psi.util.PropertyUtil;
+
 import vanstudio.sequence.openapi.filters.MethodFilter;
 
 /**

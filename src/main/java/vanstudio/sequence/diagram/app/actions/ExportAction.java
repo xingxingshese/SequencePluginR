@@ -1,12 +1,13 @@
 package vanstudio.sequence.diagram.app.actions;
 
-import vanstudio.sequence.diagram.Display;
-import vanstudio.sequence.diagram.app.Sequence;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
+
+import javax.swing.JFileChooser;
+
+import vanstudio.sequence.diagram.Display;
+import vanstudio.sequence.diagram.app.Sequence;
 
 public class ExportAction extends SequenceAction {
 

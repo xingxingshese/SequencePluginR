@@ -1,8 +1,8 @@
 package vanstudio.sequence.generator;
 
-import vanstudio.sequence.openapi.SequenceNavigable;
-
 import java.util.List;
+
+import vanstudio.sequence.openapi.SequenceNavigable;
 
 public class EmptySequenceNavigable implements SequenceNavigable {
     @Override

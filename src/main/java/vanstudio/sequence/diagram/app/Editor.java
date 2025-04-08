@@ -1,19 +1,25 @@
 package vanstudio.sequence.diagram.app;
 
 import com.intellij.openapi.diagnostic.Logger;
-import vanstudio.sequence.diagram.Model;
-import vanstudio.sequence.diagram.ModelTextEvent;
-import vanstudio.sequence.diagram.ModelTextListener;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javax.swing.Action;
+import javax.swing.ImageIcon;
+import javax.swing.JEditorPane;
+import javax.swing.JPanel;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultEditorKit;
 import javax.swing.text.Document;
-import java.awt.*;
-import java.net.URL;
-import java.util.ResourceBundle;
+
+import vanstudio.sequence.diagram.Model;
+import vanstudio.sequence.diagram.ModelTextEvent;
+import vanstudio.sequence.diagram.ModelTextListener;
 
 public class Editor extends JPanel implements DocumentListener, ModelTextListener {
 

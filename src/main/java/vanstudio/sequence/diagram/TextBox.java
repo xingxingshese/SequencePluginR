@@ -1,6 +1,7 @@
 package vanstudio.sequence.diagram;
 
-import java.awt.*;
+import java.awt.FontMetrics;
+import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 
 class TextBox {

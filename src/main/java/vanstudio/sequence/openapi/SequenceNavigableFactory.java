@@ -5,11 +5,12 @@ import com.intellij.lang.LanguageExtensionPoint;
 import com.intellij.openapi.components.ComponentManager;
 import com.intellij.openapi.extensions.ExtensionPointName;
 import com.intellij.openapi.project.Project;
-//import vanstudio.sequence.generator.EmptySequenceNavigable;
-import org.jetbrains.annotations.NotNull;
-import vanstudio.sequence.generator.JavaSequenceNavigable;
 
 import java.util.List;
+
+import org.jetbrains.annotations.NotNull;
+
+import vanstudio.sequence.generator.JavaSequenceNavigable;
 
 public class SequenceNavigableFactory {
     private static final ExtensionPointName<LanguageExtensionPoint<SequenceNavigable>> EP_NAME = ExtensionPointName.create("SequenceDiagramR.sequenceNavigable");

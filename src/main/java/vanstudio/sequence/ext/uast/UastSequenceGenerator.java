@@ -1,14 +1,35 @@
 package vanstudio.sequence.ext.uast;
 
 import com.intellij.openapi.diagnostic.Logger;
-import com.intellij.psi.*;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiMethod;
+import com.intellij.psi.PsiType;
 import com.intellij.psi.search.searches.DefinitionsScopedSearch;
 import com.intellij.util.Query;
 import com.intellij.util.containers.Stack;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.uast.*;
+import org.jetbrains.uast.UBinaryExpression;
+import org.jetbrains.uast.UCallExpression;
+import org.jetbrains.uast.UCallableReferenceExpression;
+import org.jetbrains.uast.UClass;
+import org.jetbrains.uast.UDeclaration;
+import org.jetbrains.uast.UExpression;
+import org.jetbrains.uast.UField;
+import org.jetbrains.uast.ULambdaExpression;
+import org.jetbrains.uast.ULocalVariable;
+import org.jetbrains.uast.UMethod;
+import org.jetbrains.uast.UQualifiedReferenceExpression;
+import org.jetbrains.uast.UTypeReferenceExpression;
+import org.jetbrains.uast.UastCallKind;
+import org.jetbrains.uast.UastContextKt;
+import org.jetbrains.uast.UastUtils;
 import org.jetbrains.uast.visitor.AbstractUastVisitor;
+
 import vanstudio.sequence.config.SequenceSettingsState;
 import vanstudio.sequence.generator.filters.ImplementClassFilter;
 import vanstudio.sequence.openapi.IGenerator;
@@ -17,9 +38,6 @@ import vanstudio.sequence.openapi.model.CallStack;
 import vanstudio.sequence.openapi.model.MethodDescription;
 import vanstudio.sequence.util.MyPsiUtil;
 import vanstudio.sequence.util.MyUastUtilKt;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class UastSequenceGenerator extends AbstractUastVisitor implements IGenerator {
     private static final Logger LOGGER = Logger.getInstance(UastSequenceGenerator.class);

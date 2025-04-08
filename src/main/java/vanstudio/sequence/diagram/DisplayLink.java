@@ -2,7 +2,12 @@ package vanstudio.sequence.diagram;
 
 import com.intellij.ui.JBColor;
 
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.Rectangle;
+import java.awt.Stroke;
 import java.awt.geom.GeneralPath;
 
 public class DisplayLink extends ScreenObject {

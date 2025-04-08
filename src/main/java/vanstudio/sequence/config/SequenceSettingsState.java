@@ -8,13 +8,14 @@ import com.intellij.ui.JBColor;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 import com.intellij.util.xmlb.annotations.OptionTag;
 import com.intellij.util.xmlb.annotations.Transient;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 @State(name = "sequencePlugin", storages = {@Storage("sequencePlugin.xml")})
 public class SequenceSettingsState implements PersistentStateComponent<SequenceSettingsState> {
@@ -41,8 +42,8 @@ public class SequenceSettingsState implements PersistentStateComponent<SequenceS
 
     @Transient
     private final List<ConfigListener> _listeners = new ArrayList<>();
-    private java.util.List<ExcludeEntry> _excludeList = new Vector<>();
-    private java.util.List<ColorMapEntry> _colorMappingList = new Vector<>();
+    private List<ExcludeEntry> _excludeList = new Vector<>();
+    private List<ColorMapEntry> _colorMappingList = new Vector<>();
 
     public SequenceSettingsState() {}
 

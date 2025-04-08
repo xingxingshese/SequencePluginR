@@ -4,9 +4,11 @@ import com.intellij.notification.NotificationGroup;
 import com.intellij.notification.NotificationType;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.project.Project;
+
+import org.jetbrains.annotations.Nullable;
+
 import icons.SequencePluginIcons;
 import vanstudio.sequence.SequenceService;
-import org.jetbrains.annotations.Nullable;
 
 public class MyNotifier {
 

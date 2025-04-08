@@ -1,10 +1,15 @@
 package vanstudio.sequence.openapi.model;
 
 import com.google.gson.GsonBuilder;
-import vanstudio.sequence.openapi.Constants;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import vanstudio.sequence.openapi.Constants;
 
 public class MethodDescription {
     private final ClassDescription _classDescription;

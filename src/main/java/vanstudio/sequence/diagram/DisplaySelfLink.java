@@ -1,6 +1,6 @@
 package vanstudio.sequence.diagram;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
 public class DisplaySelfLink extends DisplayLink {
 

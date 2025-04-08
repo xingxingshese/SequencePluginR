@@ -1,2 +1,2 @@
-rootProject.name = "SequencePlugin"
+rootProject.name = "SequencePluginR"
 

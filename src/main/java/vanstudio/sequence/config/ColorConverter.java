@@ -2,10 +2,11 @@ package vanstudio.sequence.config;
 
 import com.intellij.ui.JBColor;
 import com.intellij.util.xmlb.Converter;
+
+import java.awt.Color;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.awt.*;
 
 /**
  * &copy; fanhuagang@gmail.com

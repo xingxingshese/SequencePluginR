@@ -2,6 +2,38 @@ package vanstudio.sequence.diagram;
 
 import com.intellij.ui.JBColor;
 import com.intellij.util.ui.ImageUtil;
+
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Insets;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.HashMap;
+
+import javax.imageio.ImageIO;
+import javax.swing.JComponent;
+import javax.swing.JScrollPane;
+import javax.swing.JViewport;
+import javax.swing.LookAndFeel;
+import javax.swing.Scrollable;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.apache.batik.transcoder.Transcoder;
@@ -11,21 +43,11 @@ import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.image.JPEGTranscoder;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 import org.apache.batik.transcoder.image.TIFFTranscoder;
-import vanstudio.sequence.config.ConfigListener;
-import vanstudio.sequence.config.SequenceSettingsState;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.util.HashMap;
+import vanstudio.sequence.config.ConfigListener;
+import vanstudio.sequence.config.SequenceSettingsState;
 
 public class Display extends JComponent implements ModelTextListener, Scrollable, ConfigListener {
     private int _inset = 5;
@@ -201,7 +223,7 @@ public class Display extends JComponent implements ModelTextListener, Scrollable
      * Known issue: when image width * height greater than Int.MAX_VALUE, will throw <code> java.lang.NegativeArraySizeException</code>.
      * which is the limits of <code>Raster</code>
      * @param file file to be saved
-     * @throws IOException
+     * @throws java.io.IOException
      */
     @Deprecated
     public void saveImageToFile(File file) throws IOException {

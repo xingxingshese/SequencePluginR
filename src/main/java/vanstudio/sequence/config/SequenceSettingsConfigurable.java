@@ -1,10 +1,11 @@
 package vanstudio.sequence.config;
 
 import com.intellij.openapi.options.SearchableConfigurable;
+
+import javax.swing.JComponent;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import javax.swing.*;
 
 public class SequenceSettingsConfigurable implements SearchableConfigurable {
 

@@ -3,10 +3,12 @@ package vanstudio.sequence;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
+
+import org.jetbrains.annotations.NotNull;
+
 import icons.SequencePluginIcons;
 import vanstudio.sequence.config.SequenceParamsState;
 import vanstudio.sequence.ui.OptionsUI;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Show Sequence generate options dialog.

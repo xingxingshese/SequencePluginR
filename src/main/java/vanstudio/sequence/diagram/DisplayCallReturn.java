@@ -1,6 +1,8 @@
 package vanstudio.sequence.diagram;
 
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Graphics2D;
+import java.awt.Stroke;
 
 public class DisplayCallReturn extends DisplayLink {
 

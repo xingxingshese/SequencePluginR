@@ -3,7 +3,7 @@ package vanstudio.sequence.config;
 import com.intellij.util.xmlb.annotations.OptionTag;
 import com.intellij.util.xmlb.annotations.Tag;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 

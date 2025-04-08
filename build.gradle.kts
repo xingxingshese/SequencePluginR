@@ -1,101 +1,128 @@
+import org.jetbrains.changelog.Changelog
 import org.jetbrains.changelog.markdownToHTML
+import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 
-fun properties(key: String) = project.findProperty(key).toString()
+plugins {
+    id("java") // Java support
+    alias(libs.plugins.kotlin) // Kotlin support
+    alias(libs.plugins.intelliJPlatform) // IntelliJ Platform Gradle Plugin
+    alias(libs.plugins.changelog) // Gradle Changelog Plugin
+}
 
-buildscript {
-    repositories {
-        maven("https://maven.aliyun.com/repository/public")
-        maven("https://maven.aliyun.com/repository/gradle-plugin")
+group = providers.gradleProperty("pluginGroup").get()
+version = providers.gradleProperty("pluginVersion").get()
+
+// Set the JVM language level used to build the project.
+kotlin {
+    jvmToolchain(21)
+}
+
+// Configure project's dependencies
+repositories {
+    mavenCentral()
+
+    // IntelliJ Platform Gradle Plugin Repositories Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-repositories-extension.html
+    intellijPlatform {
+        defaultRepositories()
     }
 }
 
-plugins {
-    id("java")
-    id("org.jetbrains.intellij") version "1.9.0"
-    id("org.jetbrains.kotlin.jvm") version "1.7.10"
-    id("org.jetbrains.changelog") version "1.3.1"
+// Dependencies are managed with Gradle version catalog - read more: https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
+dependencies {
+    testImplementation(libs.junit)
+    testImplementation(libs.opentest4j)
+    implementation("org.apache.xmlgraphics:batik-transcoder:1.18")
+    implementation("org.apache.commons:commons-text:1.13.0")
+    // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html
+    intellijPlatform {
+        create(providers.gradleProperty("platformType"), providers.gradleProperty("platformVersion"))
+
+        // Plugin Dependencies. Uses `platformBundledPlugins` property from the gradle.properties file for bundled IntelliJ Platform plugins.
+        bundledPlugins(providers.gradleProperty("platformBundledPlugins").map { it.split(',') })
+
+        // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file for plugin from JetBrains Marketplace.
+        plugins(providers.gradleProperty("platformPlugins").map { it.split(',') })
+
+
+        testFramework(TestFrameworkType.Platform)
+    }
 }
 
-group = properties("pluginGroup")
-version = properties("pluginVersion")
+// Configure IntelliJ Platform Gradle Plugin - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-extension.html
+intellijPlatform {
+    pluginConfiguration {
+        name = providers.gradleProperty("pluginName")
+        version = providers.gradleProperty("pluginVersion")
 
-repositories {
-    mavenLocal()
-    google()
-    maven("https://maven.aliyun.com/repository/public")
-    maven("https://maven.aliyun.com/repository/gradle-plugin")
-    maven("https://www.jetbrains.com/intellij-repository/releases")
-    maven("https://cache-redirector.jetbrains.com/intellij-dependencies")
-}
+        // Extract the <!-- Plugin description --> section from README.md and provide for the plugin's manifest
+        description = providers.fileContents(layout.projectDirectory.file("README.md")).asText.map {
+            val start = "<!-- Plugin description -->"
+            val end = "<!-- Plugin description end -->"
 
-intellij {
-    version.set(properties("platformVersion"))
-    type.set(properties("platformType"))
-//    localPath.set("/Applications/IntelliJ IDEA CE.app")
-    pluginName.set(properties("pluginName"))
-    plugins.set(properties("platformPlugins").split(',').map(String::trim).filter(String::isNotEmpty))
-    updateSinceUntilBuild.set(true)
-    sandboxDir.set("${project.rootDir}/.sandbox")
-    downloadSources.set(properties("platformDownloadSources").toBoolean())
-}
-
-changelog {
-    version.set(properties("pluginVersion"))
-    groups.set(emptyList())
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-}
-
-tasks {
-//    withType<JavaCompile> {
-//        options.encoding = "UTF-8"
-//        sourceCompatibility = "1.9"
-//        targetCompatibility = "1.9"
-//    }
-
-    patchPluginXml {
-        version.set(properties("pluginVersion"))
-        sinceBuild.set(properties("pluginSinceBuild"))
-        untilBuild.set(properties("pluginUntilBuild"))
-        pluginDescription.set(
-            File(projectDir, "README.md").readText().lines().run {
-                val start = "<!-- Plugin description -->"
-                val end = "<!-- Plugin description end -->"
-
+            with(it.lines()) {
                 if (!containsAll(listOf(start, end))) {
                     throw GradleException("Plugin description section not found in README.md:\n$start ... $end")
                 }
-                subList(indexOf(start) + 1, indexOf(end))
-            }.joinToString("\n").run { markdownToHTML(this) }
-        )
-        changeNotes.set(provider { changelog.getLatest().toHTML() })
+                subList(indexOf(start) + 1, indexOf(end)).joinToString("\n").let(::markdownToHTML)
+            }
+        }
+
+        val changelog = project.changelog // local variable for configuration cache compatibility
+        // Get the latest available change notes from the changelog file
+        changeNotes = providers.gradleProperty("pluginVersion").map { pluginVersion ->
+            with(changelog) {
+                renderItem(
+                    (getOrNull(pluginVersion) ?: getUnreleased())
+                        .withHeader(false)
+                        .withEmptySections(false),
+                    Changelog.OutputType.HTML,
+                )
+            }
+        }
+
+        ideaVersion {
+            sinceBuild = providers.gradleProperty("pluginSinceBuild")
+            untilBuild = providers.gradleProperty("pluginUntilBuild")
+        }
     }
 
-//    runPluginVerifier {
-//        ideVersions.set(properties("pluginVerifierIdeVersions").split(',').map(String::trim).filter(String::isNotEmpty))
+//    signing {
+//        certificateChain = providers.environmentVariable("CERTIFICATE_CHAIN")
+//        privateKey = providers.environmentVariable("PRIVATE_KEY")
+//        password = providers.environmentVariable("PRIVATE_KEY_PASSWORD")
 //    }
 
-    publishPlugin {
-        dependsOn("patchChangelog")
-        token.set(System.getenv("PUGLISH_TOKEN"))
-        // pluginVersion is based on the SemVer (https://semver.org) and supports pre-release labels, like 2.1.7-alpha.3
+    publishing {
+        token = providers.environmentVariable("PUBLISH_TOKEN")
+        // The pluginVersion is based on the SemVer (https://semver.org) and supports pre-release labels, like 2.1.7-alpha.3
         // Specify pre-release label to publish the plugin in a custom Release Channel automatically. Read more:
         // https://plugins.jetbrains.com/docs/intellij/deployment.html#specifying-a-release-channel
-        channels.set(listOf(properties("pluginVersion").split('-').getOrElse(1) { "default" }.split('.').first()))
+        channels = providers.gradleProperty("pluginVersion")
+            .map { listOf(it.substringAfter('-', "").substringBefore('.').ifEmpty { "default" }) }
     }
 
-    compileKotlin {
-        kotlinOptions.jvmTarget = "11"
-    }
-
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = "11"
+    pluginVerification {
+        ides {
+            recommended()
+        }
     }
 }
 
-dependencies {
-//    implementation("ar.com.hjg:pngj:2.1.0")
-    implementation("org.apache.xmlgraphics:batik-svggen:1.14")
+// Configure Gradle Changelog Plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
+changelog {
+    groups.empty()
+    repositoryUrl = providers.gradleProperty("pluginRepositoryUrl")
 }
+
+
+tasks {
+    wrapper {
+        gradleVersion = providers.gradleProperty("gradleVersion").get()
+    }
+
+    publishPlugin {
+        dependsOn(patchChangelog)
+    }
+}
+
+

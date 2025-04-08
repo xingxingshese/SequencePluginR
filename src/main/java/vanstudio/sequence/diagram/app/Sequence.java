@@ -2,18 +2,42 @@ package vanstudio.sequence.diagram.app;
 
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.ui.components.JBScrollPane;
-import vanstudio.sequence.diagram.Display;
-import vanstudio.sequence.diagram.Model;
-import vanstudio.sequence.diagram.PreviewFrame;
-import vanstudio.sequence.diagram.app.actions.*;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.util.ResourceBundle;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JSplitPane;
+
+import vanstudio.sequence.diagram.Display;
+import vanstudio.sequence.diagram.Model;
+import vanstudio.sequence.diagram.PreviewFrame;
+import vanstudio.sequence.diagram.app.actions.ExampleAction;
+import vanstudio.sequence.diagram.app.actions.ExitAction;
+import vanstudio.sequence.diagram.app.actions.ExportAction;
+import vanstudio.sequence.diagram.app.actions.ModelAction;
+import vanstudio.sequence.diagram.app.actions.NewAction;
+import vanstudio.sequence.diagram.app.actions.OpenAction;
+import vanstudio.sequence.diagram.app.actions.SaveAction;
+import vanstudio.sequence.diagram.app.actions.SaveAsAction;
 
 public class Sequence extends JFrame implements PropertyChangeListener {
 

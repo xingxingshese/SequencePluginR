@@ -3,8 +3,10 @@ package vanstudio.sequence.openapi;
 import com.intellij.lang.Language;
 import com.intellij.lang.LanguageExtension;
 import com.intellij.psi.PsiElement;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
 import vanstudio.sequence.openapi.model.CallStack;
 
 public abstract class GeneratorFactory {

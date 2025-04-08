@@ -1,9 +1,16 @@
 package vanstudio.sequence.diagram;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Frame;
+import java.awt.HeadlessException;
+import java.awt.Point;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 
 public class PreviewFrame extends JDialog {
     private static final int INIT_WIDTH = 200;

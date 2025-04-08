@@ -1,10 +1,11 @@
 package vanstudio.sequence.diagram.app.actions;
 
 import com.intellij.openapi.diagnostic.Logger;
-import vanstudio.sequence.diagram.Model;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+
+import vanstudio.sequence.diagram.Model;
 
 public abstract class ModifiedEnabledAction extends ModelAction implements PropertyChangeListener {
 

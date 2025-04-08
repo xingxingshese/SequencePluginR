@@ -2,10 +2,11 @@ package vanstudio.sequence.generator.filters;
 
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiMethod;
-import vanstudio.sequence.openapi.Constants;
-import vanstudio.sequence.openapi.filters.MethodFilter;
 
 import java.util.Objects;
+
+import vanstudio.sequence.openapi.Constants;
+import vanstudio.sequence.openapi.filters.MethodFilter;
 
 /**
  * The class should be excluded.

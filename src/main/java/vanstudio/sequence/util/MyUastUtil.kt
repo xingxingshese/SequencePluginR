@@ -7,7 +7,6 @@ import vanstudio.sequence.openapi.IGenerator.ParamPair
 import vanstudio.sequence.openapi.model.ClassDescription
 import vanstudio.sequence.openapi.model.LambdaExprDescription
 import vanstudio.sequence.openapi.model.MethodDescription
-import java.util.stream.Collector
 import java.util.stream.Collectors
 
 fun createMethod(node: ULambdaExpression, offset: Int): MethodDescription {

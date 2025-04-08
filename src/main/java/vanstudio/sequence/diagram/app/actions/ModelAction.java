@@ -1,8 +1,8 @@
 package vanstudio.sequence.diagram.app.actions;
 
-import vanstudio.sequence.diagram.Model;
-
 import java.awt.event.ActionEvent;
+
+import vanstudio.sequence.diagram.Model;
 
 public abstract class ModelAction extends SequenceAction {
 

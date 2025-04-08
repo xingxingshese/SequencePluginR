@@ -6,7 +6,9 @@ import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.psi.PsiElement;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentManager;
+
 import org.jetbrains.annotations.NotNull;
+
 import vanstudio.sequence.SequencePanel;
 import vanstudio.sequence.SequenceService;
 

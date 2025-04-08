@@ -1,8 +1,10 @@
 package vanstudio.sequence.diagram.app.actions;
 
-import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
 
 public abstract class SequenceAction extends AbstractAction {
 

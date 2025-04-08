@@ -1,5 +1,11 @@
 # SequenceDiagram Changelog
 
+## 3.1.0 - 2025.04.08
+
+### Supported
+
+- Support 2025.01 .
+
 ## 3.0.6.1 - 2024.10.23
 ### Supported
 - Support comment on export `puml` .

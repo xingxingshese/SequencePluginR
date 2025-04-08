@@ -1,7 +1,15 @@
 package vanstudio.sequence;
 
+import static vanstudio.sequence.util.MyPsiUtil.getFileChooser;
+
 import com.intellij.icons.AllIcons;
-import com.intellij.openapi.actionSystem.*;
+import com.intellij.openapi.actionSystem.ActionManager;
+import com.intellij.openapi.actionSystem.ActionPopupMenu;
+import com.intellij.openapi.actionSystem.ActionToolbar;
+import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.DefaultActionGroup;
+import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.application.ReadAction;
 import com.intellij.openapi.diagnostic.Logger;
@@ -15,33 +23,59 @@ import com.intellij.ui.components.JBScrollBar;
 import com.intellij.ui.components.JBScrollPane;
 import com.intellij.util.concurrency.NonUrgentExecutor;
 import com.intellij.util.ui.UIUtil;
+
+import java.awt.Adjustable;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
+
+import javax.swing.BorderFactory;
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.plaf.basic.BasicButtonUI;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.kotlin.psi.KtFunction;
+
 import icons.SequencePluginIcons;
 import vanstudio.sequence.config.ConfigListener;
 import vanstudio.sequence.config.SequenceParamsState;
+import vanstudio.sequence.diagram.Display;
+import vanstudio.sequence.diagram.DisplayLink;
+import vanstudio.sequence.diagram.DisplayMethod;
+import vanstudio.sequence.diagram.DisplayObject;
+import vanstudio.sequence.diagram.Info;
+import vanstudio.sequence.diagram.LambdaExprInfo;
+import vanstudio.sequence.diagram.MethodInfo;
+import vanstudio.sequence.diagram.Model;
+import vanstudio.sequence.diagram.ObjectInfo;
+import vanstudio.sequence.diagram.PreviewFrame;
+import vanstudio.sequence.diagram.ScreenObject;
+import vanstudio.sequence.diagram.SequenceListener;
 import vanstudio.sequence.formatter.MermaidFormatter;
 import vanstudio.sequence.formatter.PlantUMLFormatter;
 import vanstudio.sequence.formatter.SdtFormatter;
 import vanstudio.sequence.generator.filters.ImplementClassFilter;
 import vanstudio.sequence.generator.filters.SingleClassFilter;
 import vanstudio.sequence.generator.filters.SingleMethodFilter;
-import vanstudio.sequence.openapi.*;
+import vanstudio.sequence.openapi.Constants;
+import vanstudio.sequence.openapi.GenerateFinishedListener;
+import vanstudio.sequence.openapi.GeneratorFactory;
+import vanstudio.sequence.openapi.IGenerator;
+import vanstudio.sequence.openapi.SequenceNavigable;
+import vanstudio.sequence.openapi.SequenceNavigableFactory;
+import vanstudio.sequence.openapi.SequenceParams;
 import vanstudio.sequence.openapi.model.CallStack;
 import vanstudio.sequence.ui.MyButtonlessScrollBarUI;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.kotlin.psi.KtFunction;
-import vanstudio.sequence.diagram.*;
-
-import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.plaf.basic.BasicButtonUI;
-import java.awt.*;
-import java.io.File;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
-
-import static vanstudio.sequence.util.MyPsiUtil.getFileChooser;
 
 public class SequencePanel extends JPanel implements ConfigListener {
     private static final Logger LOGGER = Logger.getInstance(SequencePanel.class);

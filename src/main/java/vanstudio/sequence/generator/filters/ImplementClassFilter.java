@@ -2,9 +2,10 @@ package vanstudio.sequence.generator.filters;
 
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiMethod;
-import vanstudio.sequence.openapi.filters.MethodFilter;
 
 import java.util.Arrays;
+
+import vanstudio.sequence.openapi.filters.MethodFilter;
 
 /**
  * The implement class should be included.

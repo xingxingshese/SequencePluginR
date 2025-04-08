@@ -1,7 +1,5 @@
 package vanstudio.sequence.formatter;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -33,14 +31,11 @@ public class SdtFormatter implements IFormatter{
     private String fillCommentToMethodName(CallStack parent) {
         String json = parent.getMethod().toJson();
 
-
-        // 1. 解析JSON字符串
         JsonObject jsonObject = JsonParser.parseString(json).getAsJsonObject();
         String methodName = getMethodName(parent.getMethod());
-        // 2. 修改指定字段的值
+
         jsonObject.addProperty("_methodName", methodName);
 
-        // 3. 生成新的JSON字符串
         String modifiedJson = jsonObject.toString();
         return modifiedJson;
 

@@ -1,9 +1,10 @@
 package vanstudio.sequence.openapi.filters;
 
 import com.intellij.psi.PsiElement;
-import vanstudio.sequence.util.MyPsiUtil;
 
 import java.util.Objects;
+
+import vanstudio.sequence.util.MyPsiUtil;
 
 /**
  * The package should be excluded.

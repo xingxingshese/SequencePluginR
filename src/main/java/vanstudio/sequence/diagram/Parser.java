@@ -3,15 +3,24 @@ package vanstudio.sequence.diagram;
 import com.google.gson.Gson;
 import com.google.gson.stream.MalformedJsonException;
 import com.intellij.openapi.diagnostic.Logger;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.StringReader;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
+import java.util.Stack;
+
+import org.jetbrains.annotations.NotNull;
+
 import vanstudio.sequence.openapi.Constants;
 import vanstudio.sequence.openapi.model.ClassDescription;
 import vanstudio.sequence.openapi.model.LambdaExprDescription;
 import vanstudio.sequence.openapi.model.MethodDescription;
-import org.jetbrains.annotations.NotNull;
-
-import java.io.*;
-import java.nio.file.Files;
-import java.util.*;
 
 public class Parser {
 

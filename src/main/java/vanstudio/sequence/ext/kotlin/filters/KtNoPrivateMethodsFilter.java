@@ -1,6 +1,7 @@
 package vanstudio.sequence.ext.kotlin.filters;
 
 import com.intellij.psi.PsiElement;
+
 import vanstudio.sequence.openapi.filters.MethodFilter;
 
 public class KtNoPrivateMethodsFilter implements MethodFilter {

@@ -1,10 +1,10 @@
 package vanstudio.sequence.ext.uast.filters;
 
 import com.intellij.psi.PsiElement;
-import org.jetbrains.uast.UElement;
+
 import org.jetbrains.uast.UMethod;
 import org.jetbrains.uast.UastContextKt;
-import org.jetbrains.uast.UastUtils;
+
 import vanstudio.sequence.openapi.filters.MethodFilter;
 
 public class UastNoPrivateMethodsFilter implements MethodFilter {

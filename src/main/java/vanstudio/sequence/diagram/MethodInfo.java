@@ -1,10 +1,11 @@
 package vanstudio.sequence.diagram;
 
-import vanstudio.sequence.openapi.Constants;
-import vanstudio.sequence.openapi.model.GenericType;
+import java.util.List;
+
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
+import vanstudio.sequence.openapi.Constants;
+import vanstudio.sequence.openapi.model.GenericType;
 
 public class MethodInfo extends Info {
 

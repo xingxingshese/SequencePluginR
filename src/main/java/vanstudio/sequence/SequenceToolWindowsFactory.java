@@ -5,8 +5,10 @@ import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentManager;
-import vanstudio.sequence.ui.Welcome;
+
 import org.jetbrains.annotations.NotNull;
+
+import vanstudio.sequence.ui.Welcome;
 
 /**
  * &copy; fanhuagang@gmail.com

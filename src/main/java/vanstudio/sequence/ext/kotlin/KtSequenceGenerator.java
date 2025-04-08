@@ -7,6 +7,12 @@ import com.intellij.psi.PsiMethod;
 import com.intellij.psi.PsiModifierList;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.containers.Stack;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.kotlin.descriptors.CallableDescriptor;
@@ -14,22 +20,48 @@ import org.jetbrains.kotlin.idea.KotlinLanguage;
 import org.jetbrains.kotlin.idea.caches.resolve.ResolutionUtils;
 import org.jetbrains.kotlin.idea.codeInsight.DescriptorToSourceUtilsIde;
 import org.jetbrains.kotlin.kdoc.psi.api.KDoc;
-import org.jetbrains.kotlin.psi.*;
+import org.jetbrains.kotlin.psi.KtCallElement;
+import org.jetbrains.kotlin.psi.KtCallExpression;
+import org.jetbrains.kotlin.psi.KtClass;
+import org.jetbrains.kotlin.psi.KtClassInitializer;
+import org.jetbrains.kotlin.psi.KtClassOrObject;
+import org.jetbrains.kotlin.psi.KtConstructor;
+import org.jetbrains.kotlin.psi.KtConstructorCalleeExpression;
+import org.jetbrains.kotlin.psi.KtConstructorDelegationCall;
+import org.jetbrains.kotlin.psi.KtFile;
+import org.jetbrains.kotlin.psi.KtFunction;
+import org.jetbrains.kotlin.psi.KtFunctionLiteral;
+import org.jetbrains.kotlin.psi.KtFunctionType;
+import org.jetbrains.kotlin.psi.KtLambdaExpression;
+import org.jetbrains.kotlin.psi.KtModifierList;
+import org.jetbrains.kotlin.psi.KtNamedFunction;
+import org.jetbrains.kotlin.psi.KtNullableType;
+import org.jetbrains.kotlin.psi.KtObjectDeclaration;
+import org.jetbrains.kotlin.psi.KtObjectLiteralExpression;
+import org.jetbrains.kotlin.psi.KtParameter;
+import org.jetbrains.kotlin.psi.KtPrimaryConstructor;
+import org.jetbrains.kotlin.psi.KtSecondaryConstructor;
+import org.jetbrains.kotlin.psi.KtSuperTypeListEntry;
+import org.jetbrains.kotlin.psi.KtTreeVisitorVoid;
+import org.jetbrains.kotlin.psi.KtTypeElement;
+import org.jetbrains.kotlin.psi.KtTypeReference;
+import org.jetbrains.kotlin.psi.KtUserType;
+import org.jetbrains.kotlin.psi.KtValueArgument;
 import org.jetbrains.kotlin.resolve.calls.model.ResolvedCall;
 import org.jetbrains.kotlin.resolve.lazy.BodyResolveMode;
+
 import vanstudio.sequence.config.SequenceSettingsState;
 import vanstudio.sequence.diagram.Info;
-import vanstudio.sequence.openapi.*;
+import vanstudio.sequence.openapi.Constants;
+import vanstudio.sequence.openapi.ElementTypeFinder;
+import vanstudio.sequence.openapi.GeneratorFactory;
+import vanstudio.sequence.openapi.IGenerator;
+import vanstudio.sequence.openapi.SequenceParams;
 import vanstudio.sequence.openapi.model.CallStack;
 import vanstudio.sequence.openapi.model.ClassDescription;
 import vanstudio.sequence.openapi.model.LambdaExprDescription;
 import vanstudio.sequence.openapi.model.MethodDescription;
 import vanstudio.sequence.util.MyPsiUtil;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 public class KtSequenceGenerator extends KtTreeVisitorVoid implements IGenerator {
     private static final Logger LOGGER = Logger.getInstance(KtSequenceGenerator.class);
@@ -472,7 +504,7 @@ public class KtSequenceGenerator extends KtTreeVisitorVoid implements IGenerator
         }
 
         if (typeElement instanceof KtFunctionType) {
-            return typeElement.getText().replaceAll("[\\(|\\)]", "_").replaceAll(" ", "");//.replaceAll("->", "→");
+            return typeElement.getText().replaceAll("[\\(|\\)]", "_").replaceAll(" ", "");
         }
 
         return "Unit";

@@ -1,10 +1,11 @@
 package vanstudio.sequence.ext.kotlin.filters;
 
 import com.intellij.psi.PsiElement;
-import vanstudio.sequence.openapi.filters.MethodFilter;
 
 import java.util.List;
 import java.util.Objects;
+
+import vanstudio.sequence.openapi.filters.MethodFilter;
 
 public class KtSingleMethodFilter implements MethodFilter {
     private final String _className;

@@ -1,10 +1,12 @@
 package vanstudio.sequence.openapi;
 
 import com.intellij.psi.PsiElement;
-import org.jetbrains.annotations.Nullable;
-import vanstudio.sequence.openapi.model.CallStack;
 
 import java.util.List;
+
+import org.jetbrains.annotations.Nullable;
+
+import vanstudio.sequence.openapi.model.CallStack;
 
 public interface IGenerator {
     /**

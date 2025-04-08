@@ -2,11 +2,40 @@ package vanstudio.sequence.generator;
 
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.openapi.diagnostic.Logger;
-import com.intellij.psi.*;
+import com.intellij.psi.JavaElementVisitor;
+import com.intellij.psi.JavaRecursiveElementVisitor;
+import com.intellij.psi.PsiAssignmentExpression;
+import com.intellij.psi.PsiCallExpression;
+import com.intellij.psi.PsiClass;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiExpression;
+import com.intellij.psi.PsiField;
+import com.intellij.psi.PsiInstanceOfExpression;
+import com.intellij.psi.PsiJavaCodeReferenceElement;
+import com.intellij.psi.PsiLambdaExpression;
+import com.intellij.psi.PsiLocalVariable;
+import com.intellij.psi.PsiMethod;
+import com.intellij.psi.PsiMethodCallExpression;
+import com.intellij.psi.PsiMethodReferenceExpression;
+import com.intellij.psi.PsiModifierList;
+import com.intellij.psi.PsiNewExpression;
+import com.intellij.psi.PsiParameter;
+import com.intellij.psi.PsiParameterList;
+import com.intellij.psi.PsiType;
+import com.intellij.psi.PsiTypeElement;
 import com.intellij.psi.search.searches.DefinitionsScopedSearch;
 import com.intellij.util.Query;
 import com.intellij.util.containers.Stack;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
 import org.jetbrains.kotlin.idea.KotlinLanguage;
+
 import vanstudio.sequence.config.SequenceSettingsState;
 import vanstudio.sequence.diagram.Info;
 import vanstudio.sequence.generator.filters.ImplementClassFilter;
@@ -18,13 +47,6 @@ import vanstudio.sequence.openapi.model.ClassDescription;
 import vanstudio.sequence.openapi.model.LambdaExprDescription;
 import vanstudio.sequence.openapi.model.MethodDescription;
 import vanstudio.sequence.util.MyPsiUtil;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class SequenceGenerator extends JavaRecursiveElementVisitor implements IGenerator {
     private static final Logger LOGGER = Logger.getInstance(SequenceGenerator.class);

@@ -1,9 +1,11 @@
 package vanstudio.sequence.ext.kotlin;
 
 import com.intellij.psi.PsiElement;
-import vanstudio.sequence.openapi.ElementTypeFinder;
+
 import org.jetbrains.kotlin.psi.KtClass;
 import org.jetbrains.kotlin.psi.KtFunction;
+
+import vanstudio.sequence.openapi.ElementTypeFinder;
 
 public class KtElementTypeFinder implements ElementTypeFinder {
     @Override

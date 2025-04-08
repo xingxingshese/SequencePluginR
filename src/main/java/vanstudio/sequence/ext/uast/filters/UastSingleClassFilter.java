@@ -1,11 +1,16 @@
 package vanstudio.sequence.ext.uast.filters;
 
 import com.intellij.psi.PsiElement;
-import org.jetbrains.uast.*;
-import vanstudio.sequence.openapi.Constants;
-import vanstudio.sequence.openapi.filters.MethodFilter;
 
 import java.util.Objects;
+
+import org.jetbrains.uast.UClass;
+import org.jetbrains.uast.UMethod;
+import org.jetbrains.uast.UastContextKt;
+import org.jetbrains.uast.UastUtils;
+
+import vanstudio.sequence.openapi.Constants;
+import vanstudio.sequence.openapi.filters.MethodFilter;
 
 public class UastSingleClassFilter implements MethodFilter {
     private final String _className;
