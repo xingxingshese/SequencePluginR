@@ -231,20 +231,5 @@ gradle-app.setting
 # Add by me
 .sandbox/
 /.idea/
-/.intellijPlatform/localPlatformArtifacts/IC-242.24807.4/bundledModule-intellij.libraries.microba-IC-242.24807.4.xml
-/.intellijPlatform/localPlatformArtifacts/IC-243.26053.27/bundledModule-intellij.libraries.microba-IC-243.26053.27.xml
-/.intellijPlatform/localPlatformArtifacts/IC-242.24807.4/bundledModule-intellij.platform.collaborationTools-IC-242.24807.4.xml
-/.intellijPlatform/localPlatformArtifacts/IC-243.26053.27/bundledModule-intellij.platform.collaborationTools-IC-243.26053.27.xml
-/.intellijPlatform/localPlatformArtifacts/IC-242.24807.4/bundledModule-intellij.platform.vcs.dvcs.impl-IC-242.24807.4.xml
-/.intellijPlatform/localPlatformArtifacts/IC-243.26053.27/bundledModule-intellij.platform.vcs.dvcs.impl-IC-243.26053.27.xml
-/.intellijPlatform/localPlatformArtifacts/IC-242.24807.4/bundledModule-intellij.platform.vcs.impl-IC-242.24807.4.xml
-/.intellijPlatform/localPlatformArtifacts/IC-243.26053.27/bundledModule-intellij.platform.vcs.impl-IC-243.26053.27.xml
-/.intellijPlatform/localPlatformArtifacts/IC-242.24807.4/bundledModule-intellij.platform.vcs.log.impl-IC-242.24807.4.xml
-/.intellijPlatform/localPlatformArtifacts/IC-243.26053.27/bundledModule-intellij.platform.vcs.log.impl-IC-243.26053.27.xml
-/.intellijPlatform/localPlatformArtifacts/IC-242.24807.4/bundledModule-intellij-platform-test-runtime-IC-242.24807.4.xml
-/.intellijPlatform/localPlatformArtifacts/IC-242.24807.4/bundledPlugin-com.intellij.java-IC-242.24807.4.xml
-/.intellijPlatform/localPlatformArtifacts/IC-243.26053.27/bundledPlugin-com.intellij.java-IC-243.26053.27.xml
-/.intellijPlatform/localPlatformArtifacts/IC-242.24807.4/bundledPlugin-org.jetbrains.kotlin-IC-242.24807.4.xml
-/.intellijPlatform/localPlatformArtifacts/IC-243.26053.27/bundledPlugin-org.jetbrains.kotlin-IC-243.26053.27.xml
-/.intellijPlatform/coroutines-javaagent.lock
-/.intellijPlatform/self-update.lock
+/.intellijPlatform/
+

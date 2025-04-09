@@ -1,6 +1,6 @@
 # SequenceDiagram Changelog
 
-## 3.1.1 - 2025.04.09
+## 3.1.2 - 2025.04.09
 
 ### Fixed
 
