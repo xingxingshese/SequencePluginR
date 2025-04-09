@@ -1,6 +1,14 @@
 package vanstudio.sequence.ui;
 
-import com.intellij.openapi.actionSystem.*;
+import static vanstudio.sequence.util.MyNotifier.notifyError;
+import static vanstudio.sequence.util.MyPsiUtil.getFileChooser;
+
+import com.intellij.openapi.actionSystem.ActionManager;
+import com.intellij.openapi.actionSystem.ActionToolbar;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
+import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowManager;
@@ -12,29 +20,28 @@ import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentManager;
 import com.intellij.util.ui.HTMLEditorKitBuilder;
 import com.intellij.util.ui.UIUtil;
-import icons.SequencePluginIcons;
+
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
+import javax.swing.text.Document;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.StyleSheet;
+
 import org.jetbrains.annotations.NotNull;
+
+import icons.SequencePluginIcons;
 import vanstudio.sequence.SequencePanel;
 import vanstudio.sequence.SequenceParamsEditor;
 import vanstudio.sequence.SequenceService;
 import vanstudio.sequence.diagram.Parser;
 import vanstudio.sequence.openapi.model.MethodDescription;
 import vanstudio.sequence.util.MyPsiUtil;
-
-import javax.swing.*;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import java.awt.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.stream.Collectors;
-
-import static vanstudio.sequence.util.MyNotifier.notifyError;
-import static vanstudio.sequence.util.MyPsiUtil.getFileChooser;
 
 public class Welcome {
     private final JPanel myHtmlPanelWrapper;
@@ -99,6 +106,10 @@ public class Welcome {
 
     private class LoadAction extends AnAction {
 
+        @Override
+        public @NotNull ActionUpdateThread getActionUpdateThread() {
+            return ActionUpdateThread.EDT;
+        }
         public LoadAction() {
             super("Open Diagram", "Open SequenceDiagram text (.sdt) file", SequencePluginIcons.OPEN_ICON);
         }

@@ -6,6 +6,7 @@ import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionPopupMenu;
 import com.intellij.openapi.actionSystem.ActionToolbar;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
@@ -346,6 +347,11 @@ public class SequencePanel extends JPanel implements ConfigListener {
             Presentation presentation = e.getPresentation();
             presentation.setEnabled(psiElement != null);
         }
+
+        @Override
+        public @NotNull ActionUpdateThread getActionUpdateThread() {
+            return ActionUpdateThread.EDT;
+        }
     }
 
     private class ExportAction extends AnAction {
@@ -383,6 +389,11 @@ public class SequencePanel extends JPanel implements ConfigListener {
         public void update(@NotNull AnActionEvent e) {
             e.getPresentation().setEnabled(_display.getDiagram().nonEmpty());
         }
+
+        @Override
+        public @NotNull ActionUpdateThread getActionUpdateThread() {
+            return ActionUpdateThread.EDT;
+        }
     }
 
     private class LoadAction extends AnAction {
@@ -405,6 +416,11 @@ public class SequencePanel extends JPanel implements ConfigListener {
         @Override
         public void update(@NotNull AnActionEvent e) {
             e.getPresentation().setEnabled(psiElement == null);
+        }
+
+        @Override
+        public @NotNull ActionUpdateThread getActionUpdateThread() {
+            return ActionUpdateThread.EDT;
         }
     }
 
@@ -446,6 +462,11 @@ public class SequencePanel extends JPanel implements ConfigListener {
         public void update(@NotNull AnActionEvent e) {
             e.getPresentation().setEnabled(_display.getDiagram().nonEmpty());
         }
+
+        @Override
+        public @NotNull ActionUpdateThread getActionUpdateThread() {
+            return ActionUpdateThread.EDT;
+        }
     }
 
     private class ExportPumlAction extends AnAction {
@@ -483,6 +504,11 @@ public class SequencePanel extends JPanel implements ConfigListener {
         public void update(@NotNull AnActionEvent e) {
             e.getPresentation().setEnabled(psiElement != null);
         }
+
+        @Override
+        public @NotNull ActionUpdateThread getActionUpdateThread() {
+            return ActionUpdateThread.EDT;
+        }
     }
 
 
@@ -502,6 +528,11 @@ public class SequencePanel extends JPanel implements ConfigListener {
         public void update(@NotNull AnActionEvent e) {
             e.getPresentation().setEnabled(psiElement != null);
         }
+
+        @Override
+        public @NotNull ActionUpdateThread getActionUpdateThread() {
+            return ActionUpdateThread.EDT;
+        }
     }
 
     private class RemoveClassAction extends AnAction {
@@ -520,6 +551,11 @@ public class SequencePanel extends JPanel implements ConfigListener {
         @Override
         public void update(@NotNull AnActionEvent e) {
             e.getPresentation().setEnabled(psiElement != null);
+        }
+
+        @Override
+        public @NotNull ActionUpdateThread getActionUpdateThread() {
+            return ActionUpdateThread.EDT;
         }
     }
 
@@ -544,6 +580,11 @@ public class SequencePanel extends JPanel implements ConfigListener {
         @Override
         public void update(@NotNull AnActionEvent e) {
             e.getPresentation().setEnabled(psiElement != null);
+        }
+
+        @Override
+        public @NotNull ActionUpdateThread getActionUpdateThread() {
+            return ActionUpdateThread.EDT;
         }
     }
 
@@ -571,6 +612,11 @@ public class SequencePanel extends JPanel implements ConfigListener {
         @Override
         public void update(@NotNull AnActionEvent e) {
             e.getPresentation().setEnabled(psiElement != null);
+        }
+
+        @Override
+        public @NotNull ActionUpdateThread getActionUpdateThread() {
+            return ActionUpdateThread.EDT;
         }
     }
 

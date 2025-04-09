@@ -1,5 +1,6 @@
 package vanstudio.sequence;
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
@@ -38,6 +39,11 @@ public class SequenceParamsEditor extends AnAction {
             // Notify parameter change.
             state.fireConfigChanged();
         }
+    }
+
+    @Override
+    public @NotNull ActionUpdateThread getActionUpdateThread() {
+        return ActionUpdateThread.EDT;
     }
 
 }

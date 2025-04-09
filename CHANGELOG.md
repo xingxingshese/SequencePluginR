@@ -1,9 +1,13 @@
 # SequenceDiagram Changelog
 
+## 3.1.1 - 2025.04.09
+
+### Fixed
+
+- Export img error bug .
+
 ## 3.1.0 - 2025.04.08
-
 ### Supported
-
 - Support 2025.01 .
 
 ## 3.0.6.1 - 2024.10.23
