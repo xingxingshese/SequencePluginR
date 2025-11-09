@@ -15,8 +15,7 @@ public interface ActionFinder {
     static String[] UAST_Language = new String[] {
           "JAVA", "kotlin", "Groovy", "Scala"
     };
-    @NotNull
-    LanguageExtension<ActionFinder> EP_NAME = new LanguageExtension<>("SequenceDiagramR.actionFinder");
+    @NotNull LanguageExtension<ActionFinder> EP_NAME = new LanguageExtension<>("SequenceDiagramRComments.actionFinder");
     static boolean isValid(@NotNull Language language) {
         boolean match = Arrays.stream(UAST_Language).anyMatch(p -> p.equals(language.getID()));
 

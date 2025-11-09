@@ -1,4 +1,11 @@
-# SequenceDiagram Changelog
+# SequenceDiagramRComments Changelog
+
+## 3.1.3 - 2025.11.09
+
+### Fixed
+
+- Update License .
+- Change name.
 
 ## 3.1.2 - 2025.04.09
 

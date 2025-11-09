@@ -1,8 +1,8 @@
 <idea-plugin>
-    <id>SequenceDiagramR</id>
-    <name>SequenceDiagramR</name>
+    <id>SequenceDiagramRComments</id>
+    <name>SequenceDiagramRComments</name>
     <description><![CDATA[
-<h3>SequenceDiagramR for IntelliJ IDEA</h3>
+<h3>SequenceDiagramRComments for IntelliJ IDEA</h3>
 this plugin is a fork of <a href="http://vanco.github.io/SequencePlugin">SequencePlugin.</a>
 
 
@@ -37,7 +37,7 @@ this plugin is a fork of <a href="http://vanco.github.io/SequencePlugin">Sequenc
     <actions>
         <action id="SequencePlugin.ShowSequenceDiagram" class="vanstudio.sequence.ShowSequenceAction"
                 icon="SequencePluginIcons.SEQUENCE_ICON"
-                text="Sequence Diagram R"
+                text="Sequence Diagram R Comments "
                 description="Generate sequence diagram of the current method">
             <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="ShowIntentionsGroup"/>
 <!--            <add-to-group group-id="StructureViewPopupMenu" anchor="after" relative-to-action="RefactoringMenu"/>-->
@@ -73,10 +73,10 @@ this plugin is a fork of <a href="http://vanco.github.io/SequencePlugin">Sequenc
         <applicationConfigurable parentId="tools"
                                  id="Settings.Sequence.Configuration"
                                  instance="vanstudio.sequence.config.SequenceSettingsConfigurable"
-                                 displayName="Sequence Diagram R"/>
+                                 displayName="Sequence Diagram R Comments "/>
         <applicationService serviceImplementation="vanstudio.sequence.config.SequenceSettingsState"/>
         <applicationService serviceImplementation="vanstudio.sequence.config.SequenceParamsState"/>
-        <toolWindow id="Sequence Diagram R" icon="SequencePluginIcons.SEQUENCE_ICON_13" anchor="bottom"
+        <toolWindow id="Sequence Diagram R Comments " icon="SequencePluginIcons.SEQUENCE_ICON_13" anchor="bottom"
                     factoryClass="vanstudio.sequence.SequenceToolWindowsFactory" canCloseContents="true"/>
         <!-- Since idea 2020.3.x -->
         <notificationGroup displayType="BALLOON" id="Sequence Diagram"/>
@@ -86,7 +86,7 @@ this plugin is a fork of <a href="http://vanco.github.io/SequencePlugin">Sequenc
 
 
     </extensions>
-    <extensions defaultExtensionNs="SequenceDiagramR">
+    <extensions defaultExtensionNs="SequenceDiagramRComments">
         <sequenceNavigable language="JAVA"
                            implementationClass="vanstudio.sequence.generator.JavaSequenceNavigable"/>
 <!--        <generator language="JAVA" implementationClass="vanstudio.sequence.generator.JavaGeneratorFactory"/>-->

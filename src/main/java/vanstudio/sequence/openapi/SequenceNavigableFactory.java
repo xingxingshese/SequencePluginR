@@ -13,7 +13,8 @@ import org.jetbrains.annotations.NotNull;
 import vanstudio.sequence.generator.JavaSequenceNavigable;
 
 public class SequenceNavigableFactory {
-    private static final ExtensionPointName<LanguageExtensionPoint<SequenceNavigable>> EP_NAME = ExtensionPointName.create("SequenceDiagramR.sequenceNavigable");
+    private static final ExtensionPointName<LanguageExtensionPoint<SequenceNavigable>> EP_NAME = ExtensionPointName.create(
+        "SequenceDiagramRComments.sequenceNavigable");
 
     public static final SequenceNavigableFactory INSTANCE = new SequenceNavigableFactory();
 

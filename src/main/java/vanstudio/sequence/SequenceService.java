@@ -7,8 +7,8 @@ import com.intellij.psi.PsiElement;
  * Created by van on 2020/2/23.
  */
 public interface SequenceService {
-    String PLUGIN_ID = "SequenceDiagramR";
-    String PLUGIN_NAME = "Sequence Diagram R";
+    String PLUGIN_ID = "SequenceDiagramRComments";
+    String PLUGIN_NAME = "Sequence Diagram R Comments ";
 
     void showSequence(PsiElement psiElement);
 
